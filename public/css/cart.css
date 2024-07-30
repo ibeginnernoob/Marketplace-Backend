@@ -1,0 +1,137 @@
+.empty-cart-heading{
+    margin: 160px 0px 0px 0px;
+    width: 100%;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 35px;
+}
+.cart-page{
+    margin: 180px 200px 0px 200px;
+}
+.cart-heading{
+    width: 100%;
+    margin: 0px 0px 20px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 35px;
+}
+.cart-headers{
+    margin: 20px 0px 20px 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: rgb(150, 150, 150);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+}
+.first-cart-header{
+    width: 330px;
+}
+.cart-product{
+    margin: 0px 0px 30px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.product-details-cart{
+    width: 505px;
+    display: flex;
+    flex-direction: row;
+}
+.product-details-cart img{
+    width: 180px;
+    height: 110px;
+    border-radius: 2px;
+}
+.product-details-cart div{
+    height: 90px;
+    width: 270px;
+    margin: 5px 0px 0px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 550;
+    font-size: 20px;
+}
+.product-details-cart div form button{
+    padding: 0;
+    width: 140px;
+    background-color: white;
+    border: none;
+    text-decoration: none;
+    color: rgb(120, 120, 120);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+}
+.product-details-cart div button:hover{
+    text-decoration: underline;
+}
+.cart-product-qty{
+    width: 250px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.quantity-input {
+    text-align: center;
+    width: 20px;
+    padding: 2px 4px 2px 4px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    color: #333;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.quantity-input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+.quantity-input[readonly] {
+    background-color: #eee;
+    cursor: default;
+}
+.quantity-btn{
+    border: none;
+    background-color: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+.minus{
+    margin-right: 5px;
+}
+.plus{
+    margin-left: 5px;
+}
+.product-price-cart{
+    width: 220px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+.product-total-price{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+.shop-link-from-cart{
+    margin: 20px 0px 0px 200px;
+    text-decoration: none;
+    color: rgb(0, 123, 255);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
+}
+.shop-link-from-cart:hover{
+    text-decoration: underline;
+}

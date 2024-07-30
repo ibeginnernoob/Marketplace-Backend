@@ -1,0 +1,24 @@
+<div class="navbar">
+    <div class="navbar-elements">
+        <div class="navbar-logo">
+            <a href="/"><img src="/images/logo.svg.png" alt="Logo"></a>
+        </div>
+        <div class="navbar-btns">
+            <a href="/mobile/search-shop-page"><img src="/images/search-logo.png" alt="Search" class="navbar-btn"></a>
+            <% if (isAuthenticated) { %>
+                <a href="/mobile/wishlist"><img src="/images/nav-bar favourites-logo.webp" alt="Favourites" class="navbar-btn"></a>
+                <a href="/mobile/cart"><img src="/images/cart-logo.png" alt="Cart" class="navbar-btn"></a>
+                <form action="/logout" method="post">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    <button class="navbar-logout-button">Logout</button>
+                    </button>
+                </form>
+                <!-- <img src="/images/account-logo.png" alt="User Account" class="navbar-btn"> -->
+            <% } else { %> 
+                <a href="/mobile/login"><button class="navbar-login-btn">Log In</button></a>
+                <a href="/mobile/signup"><button class="navbar-signup-btn">Sign Up</button></a>
+            <% } %> 
+        </div>
+    </div>
+    <hr class="navbar-end">
+</div>

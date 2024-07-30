@@ -1,0 +1,153 @@
+.shop{
+    width: 100%;
+    text-align: center;
+    margin: 150px 0px -10px 0px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 500;
+    font-size: 35px;
+}
+.empty-admin-page{
+    width: 100%;
+    text-align: center;
+    margin: 30px 0px 30px 0px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+}
+.admin-type-division{
+    margin: 0px 0px 20px 90px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 500;
+    font-size: 35px;
+}
+.first-type-admin{
+    margin: 20px 0px 20px 90px;
+}
+.display-admin-products-shop{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 400px;
+    margin: 50px 0px 50px 0px;
+    padding-top: 0px;
+}
+.admin-product{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 400px;
+    position: relative;
+}
+.admin-product-image{
+    height: 200px;
+    width: 350px;
+}
+.admin-product-title{
+    margin-top: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+}
+.admin-product-controls{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.remove-shop-btn{
+    margin: 10px 0px 20px 0px;
+    padding: 10px 20px 10px 20px;
+    width: 250px;
+    border: 1px solid rgb(150, 150, 150);
+    border-radius: 40px;
+    background-color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 17px;
+}
+.remove-shop-btn:hover{
+    background-color: rgb(225, 225, 225);
+    cursor: pointer;
+}
+.remove-shop-btn:active{
+    background-color: rgb(195, 195, 195);
+}
+.product-change-btn{
+    padding: 10px 20px 10px 20px;
+    width: 250px;
+    border: 1px solid rgb(150, 150, 150);
+    border-radius: 40px;
+    background-color: rgb(0, 149, 255);
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 17px;
+}
+.product-change-btn:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+.product-change-btn:active{
+    opacity: 0.6;
+}
+.edit-btn{
+    margin: 0px 0px 5px 0px;
+}
+.delete-btn{
+    margin: 5px 0px 0px 0px;
+}
+.add-shop{
+    width: 100%;
+    text-align: center;
+    margin: 40px 0px -10px 0px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 500;
+    font-size: 33px;
+}
+.display-admin-products-add-shop{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 400px;
+    margin: 30px 0px 30px 0px;
+    padding-top: 0px;
+}
+.add-shop-product{
+    margin: 0px 0px 20px 0px;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 400px;
+    position: relative;
+}
+.add-shop-product-image{
+    height: 200px;
+    width: 350px;
+}
+.add-shop-product-title{
+    margin-top: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+}
+.add-shop-product-controls{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.add-shop-btn{
+    margin: 10px 0px 20px 0px;
+    padding: 10px 20px 10px 20px;
+    width: 250px;
+    border: 1px solid rgb(150, 150, 150);
+    border-radius: 40px;
+    background-color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 17px;
+}
+.add-shop-btn:hover{
+    background-color: rgb(225, 225, 225);
+    cursor: pointer;
+}
+.add-shop-btn:active{
+    background-color: rgb(195, 195, 195);
+}

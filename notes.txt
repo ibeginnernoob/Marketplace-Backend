@@ -1,0 +1,9 @@
+remaining features - 
+product filter
+
+user settings - change password and email
+
+file upload for product images
+
+error handling 
+

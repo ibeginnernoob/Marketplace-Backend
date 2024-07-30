@@ -1,0 +1,71 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<!--<input type="hidden" name="_csrf" value="<%= csrfToken %>"> for post requests to be added in future.-->
+<body>
+    <%- include('../includes/navbar.ejs') %>
+    <div class="product-details-page">
+        <div class="images-section">
+            <div class="thumbnails">
+                <img src="<%= product.imageURL[0] %>" alt="" class="thumbnail top-thumbnail">
+                <img src="<%= product.imageURL[1] %>" alt="" class="thumbnail">
+                <img src="<%= product.imageURL[2] %>" alt="" class="thumbnail">
+                <img src="<%= product.imageURL[3] %>" alt="" class="thumbnail">
+                <img src="<%= product.imageURL[4] %>" alt="" class="thumbnail bottom-thumbnail">
+            </div>
+            <img src="<%= product.imageURL[0] %>" alt="" id="zoomed" class="zoomed-image">
+        </div>
+        <div class="product-info-purchase-section">
+            <h1 class="title-details-page"><%= product.title %></h1>
+            <h2 class="type-details-page"><%= product.type %></h2>
+            <div class="display-price-details-page">
+                <div class="price-details-page">&#8377;<%= product.price %></div>   
+                <div class="cancelled-price-details-page"><s>&#8377;<%= product.cancel_price %></s></div>
+            </div>
+            <p class="description-details-page"><%= product.description %></p>
+            <form action="/details/add-to-cart" method="post">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <input type="hidden" value="<%= product._id %>" name="productId">
+                <div class="qty-input-div-details-page">
+                    Quantity: <input type="number" min="1" value="<%= Qty %>" id="qty-input" class="qty-input-details-page" name="qty" <% if (!isAuthenticated) { %> disabled <% } %>>
+                </div>
+                <div class="details-page-btns">
+                    <button class="add-cart-details-page" type="submit" <% if (!isAuthenticated) { %> disabled data-tooltip1="Please Log In or Sign Up to add products to your Cart" <% } %>>Add To Cart</button>
+            </form>
+                <form action="/add-to-wishlist" method="post">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    <input type="hidden" value="<%= product._id %>" name="productId">
+                    <button type="submit" class="add-wishlist-details-page" <% if (!isAuthenticated) { %> disabled data-tooltip2="Please Log In or Sign Up to add products to your Wishlist" <% } %>>Add to Wishlist</button>
+                </form>
+            </div>
+        </div>
+        <script>
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const zoomedImage = document.getElementById('zoomed');
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('mouseover', () => {
+                    zoomedImage.src = thumbnail.src;
+                    zoomedImage.alt = thumbnail.alt;
+                    thumbnails.forEach(thumb => thumb.classList.remove('active'));
+                    thumbnail.classList.add('active');
+                });
+            });
+            thumbnails[0].classList.add('active');
+    
+            const input = document.getElementById('qty-input');
+            input.addEventListener('focus', function() {
+            this.style.caretColor = 'transparent';
+            });
+            input.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                this.value = parseInt(this.value) + 1;
+            } else if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                this.value = parseInt(this.value) - 1;
+            } else if (e.key !== 'Tab') {
+                e.preventDefault();
+            }
+            });
+        </script>
+    </div>
+</body>

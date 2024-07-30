@@ -1,0 +1,55 @@
+<div class="navbar">
+    <% if (isAdmin && isAuthenticated) { %>
+        <%- include('../includes/admincontrols.ejs') %>
+    <% } %>
+    <div class="navbar-elements">
+        <a href="/"><img src="/images/logo.svg.png" alt="Logo" class="navbar-logo"></a>
+        <form action="/laptop/search" method="post">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <div class="searchbar">
+                <button type="submit"><img src="/images/search-logo.png" alt="Search" class="search-logo"></button>
+                <input type="text" class="navbar-searchbar" placeholder="Search for Products" name="searchBar">
+            </div>
+        </form>
+        <% if (isAuthenticated) { %>
+            <div class="navbar-btns">
+                <div>
+                    <a href="/laptop/wishlist" class="navbar-button-link"><img src="/images/nav-bar favourites-logo.webp" alt="wishlist" class="navbar-user-favourites-btn"></a>
+                    <div class="navbar-btn-hoverbox fav-hoverbox">
+                        Wishlist
+                    </div>
+                </div>
+                <div>
+                    <a href="/laptop/cart" class="navbar-button-link"><img src="/images/cart-logo.png" alt="Cart" class="navbar-user-cart-btn"></a>
+                    <div class="navbar-btn-hoverbox cart-hoverbox">
+                        Cart
+                    </div>
+                </div>
+                <div>
+                    <img src="/images/account-logo.png" alt="User Account" class="navbar-user-account-btn">
+                    <div class="account-details-hoverbox">
+                        <form action="/logout" method="post">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <button class="logout-button">
+                                <div class="logout">
+                                    <img src="/images/logout-img.png" alt="" class="logout-img"> Logout
+                                </div>
+                            </button>
+                        </form>
+                        <!-- <button>
+                            <div class="settings">
+                                <img src="/images/settings-img.png" alt="" class="settings-img"> Settings
+                            </div>
+                        </button> -->
+                    </div>
+                </div>
+            </div>
+        <% } else { %>
+            <div class="navbar-btns unauth-btns-navbar">
+                <a href="/laptop/signup"><button class="navbar-signup-btn">Sign Up</button></a>
+                <a href="/laptop/login"><button class="navbar-login-btn">Log In</button></a>
+            </div>
+        <% } %>
+    </div>
+    <hr class="navbar-end">
+</div>

@@ -1,0 +1,57 @@
+<%- include('../includes/head-mobile.ejs') %>
+<!--<input type="hidden" name="_csrf" value="<%= csrfToken %>"> for post requests to be added in future.-->
+</head>
+<body>
+    <div class="searchshop-navbar">
+        <a href="/"><img src="/images/cancel-logo.png" alt="" class="redirect-shop-btn"></a>
+        <div class="search-section">
+            <form action="/mobile/search" method="post">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <button type="submit"><img src="/images/search-logo.png" alt=""></button>
+                <input type="text" placeholder="Search for Products" name="searchBar">
+            </form>
+        </div>
+    </div>
+    <div class="searchshop-products">
+        <% if (!search_string) { %>
+            <h2 class="searchshop_message">Search for something...</h2>
+        <% } else if (search_string && Object.keys(searchShopProducts).length===0) { %>
+            <h2 class="searchshop_message">We couldn't find any matches for your search.</h2>
+        <% } else { %>
+            <h2 class="searchshop_message">Here's what we found for you...</h2>
+            <div class="search-shop-display-products-page"><!--css styling in search-shop-mobile-->
+                <% let count=0; %>
+                <% Object.entries(searchShopProducts).forEach(([type, products],index) => { %>
+                    <% if (index===0) { %>
+                        <h2 class="shop-type-division first-type"><%= type %></h2>
+                    <% } else { %>
+                        <h2 class="shop-type-division"><%= type %></h2>
+                    <% } %>
+                    <% products.forEach((prod,index) => { %>
+                        <% if (index%2==0) { %>
+                            <div class="display-products">
+                        <% } %>
+                                <div class="product">
+                                    <a href="/mobile/product-details/<%= prod._id %>">
+                                        <img src="<%= prod.imageURL[0] %>" alt="Product Image" class="product-image">
+                                        <div class="product-title"><%= prod.title %></div>
+                                        <div class="display-price">
+                                            <div class="product-price">&#8377;<%= prod.price %></div>   
+                                            <div class="cancelled-product-price"><s>&#8377;<%= prod.cancel_price %></s></div>
+                                        </div>
+                                    </a>
+                               </div>
+                        <% count+=1; %>
+                        <% while (index==products.length-1 && count%2!=0) { %>
+                            <div class="product"></div>
+                            <% count+=1; %>
+                        <% } %>
+                        <% if (count%2==0) { %>
+                            </div>
+                        <% } %>
+                    <% }) %>
+                <% }) %>
+            </div>
+        <% } %>
+    </div>
+</body>

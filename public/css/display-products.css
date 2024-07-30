@@ -1,0 +1,242 @@
+.no-result{
+    margin: 150px 0px 0px 340px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 500;
+}
+
+.display-products{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 300px;
+    margin: 30px 0px 30px 0px;
+    padding-top: 0px;
+}
+.display-products a{
+    text-decoration: none;
+}
+.product{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 280px;
+    position: relative;
+}
+.product-image{
+    height: 200px;
+    width: 350px;
+}
+.product-title{
+    margin-top: 5px;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+}
+.display-price{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 350px;
+    margin-top: 5px;
+}
+.product-price{
+    color: black;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+}
+.cancelled-product-price{
+    margin-left: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: rgb(75, 75, 75);
+}
+
+.hover-box{
+    border: 1px solid black;
+    width: 400px;
+    position: absolute;
+    top: -10px;
+    left: 370px;
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+    opacity: 0;
+    width: 400px;
+    border: 1px solid black;
+    background-color: white;
+    z-index: 1;
+    transition: visibility 0.2s,opacity 0.2s;
+}
+.product-left .hover-box{
+    right: 0px;
+    left: -420px;
+}
+.hover-box:before, .hover-box:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: -21px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+}
+.hover-box:before {
+    border: 10px solid transparent;
+    border-right-color: #000000;
+}
+.hover-box:after {
+    border: 11px solid transparent;
+    border-right-color: #ffffff;
+}
+.product-left .hover-box:before,.product-left .hover-box:after {
+    left: auto;
+    right: -21px;
+    transform: translateY(-50%) scaleX(-1);
+}
+.product:hover .hover-box{
+    visibility: visible;
+    opacity: 1;
+    display: block;
+    transition-delay: 0.3s;
+}
+.hover-box-product-title{
+    margin: 15px 25px 0px 25px;
+    width: 350px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+    font-size: 25px;
+}
+.product-description{
+    margin: 10px 25px 0px 25px;
+    width: 350px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: rgb(100, 100, 100);
+}
+.hover-box-btns{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 25px 20px 25px;
+    width: 330px;
+}
+.hover-box-add-to-cart-btn{
+    position: relative;
+    width: 250px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(155, 65, 240);
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    transition: 0.15s;
+}
+.hover-box-add-to-cart-btn:not([disabled]):hover{
+    background-color: rgba(155, 65, 239, 0.9);
+}
+.hover-box-add-to-cart-btn:not([disabled]):active{
+    background-color: rgba(155, 65, 240, 0.8);
+}
+.hover-box-add-to-cart-btn[disabled]{
+    cursor: not-allowed;
+}
+.hover-box-add-to-cart-btn[disabled]::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+}
+.hover-box-add-to-cart-btn[disabled]::after{
+    content: attr(data-tooltip1);
+    width: 200px;
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 10px 5px 10px;
+    background-color: #000000;
+    border-radius: 4px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s, bottom 0.2s;
+}
+.hover-box-add-to-cart-btn[disabled]:hover::after{
+    opacity: 0.8;
+    visibility: visible;
+    bottom: 120%;
+}
+.hover-box-favourite-btn{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.hover-box-favourite-btn img{
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    transition: 0.15s;
+}
+.hover-box-favourite-btn img:hover{
+    opacity: 0.8;
+}
+.hover-box-favourite-btn img:active{
+    opacity: 0.6;
+}
+.hover-box-favourite-btn[disabled]{
+    cursor: not-allowed;
+}
+.hover-box-favourite-btn[disabled]::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+}
+.hover-box-favourite-btn[disabled]::after{
+    content: attr(data-tooltip2);
+    width: 200px;
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 10px 5px 10px;
+    background-color: #000000;
+    border-radius: 4px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s, bottom 0.2s;
+}
+.hover-box-favourite-btn[disabled]:hover::after{
+    opacity: 0.8;
+    visibility: visible;
+    bottom: 120%;
+}

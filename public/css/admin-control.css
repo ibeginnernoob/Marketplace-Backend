@@ -1,0 +1,27 @@
+.admin-controls{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px 0px 10px 0px;
+}
+.admin-control-btn{
+    padding: 5px 10px 5px 10px;
+    height: 30px;
+    background-color: white;
+    border: 0.5px solid black;
+    border-radius: 5px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 15px;
+}
+.admin-control-btn:hover{
+    background-color: rgb(235, 235, 235);
+}
+.admin-control-btn:active{
+    background-color: rgb(215, 215, 215);
+}
+.add-product-control{
+    margin: 0px 20px 0px 0px;
+}
+.admin-products-control{
+    margin: 0px 0px 0px 20px;
+}

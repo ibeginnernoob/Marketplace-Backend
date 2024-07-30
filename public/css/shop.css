@@ -1,0 +1,26 @@
+.shop-type-division{
+    margin: 0px 0px 20px 90px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 500;
+    font-size: 35px;
+}
+.first-type{
+    margin: 100px 0px 20px 90px;
+}
+.search-page-header{
+    width: 100%;
+    text-align: center;
+    margin: 130px 0px 30px 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif ;
+    font-weight: 500;
+    font-size: 30px;
+}
+.search-shop-type-division{
+    margin: 0px 0px 10px 90px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 500;
+    font-size: 30px;
+}
+.first-type-search{
+    margin: 10px 0px 10px 90px;
+}

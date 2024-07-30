@@ -1,0 +1,79 @@
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: white;
+    padding: 10px 0px 0px 0px;
+}
+.navbar hr{
+    border: 0.5px solid rgb(175, 175, 175);
+}
+.navbar-elements{
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+.navbar-logo{
+    height: 30px;
+    flex: 0.65;
+}
+.navbar-logo img{
+    height: 30px;
+}
+.navbar-btns{
+    flex: 0.8;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar-btn{
+    height: 25px;
+}
+.navbar-logout-button{
+    text-align: center;
+    padding: 5px 10px 5px 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+.navbar-signup-btn{
+    padding: 8px 10px 8px 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 13px;
+    transition: 0.15s;
+}
+.navbar-signup-btn:hover{
+    background-color: rgb(240, 240, 240);
+    cursor: pointer;
+}
+.navbar-signup-btn:active{
+    background-color: rgb(220, 220, 220);
+}
+.navbar-login-btn{
+    padding: 9px 10px 9px 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-size: 13px;
+    transition: 0.15s;
+}
+.navbar-login-btn:hover{
+    background-color: rgb(50, 50, 50);
+    cursor: pointer;
+}
+.navbar-login-btn:active{
+    background-color: rgb(70, 70, 70);
+}

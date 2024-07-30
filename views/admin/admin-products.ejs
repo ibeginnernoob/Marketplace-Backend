@@ -1,0 +1,89 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<body>
+    <%- include('../includes/navbar.ejs') %>
+    <h2 class="shop">Shop</h2>
+    <% if (Object.keys(inShopProductsObj).length===0) { %>
+        <h2 class="empty-admin-page">No products added yet.</h2>
+    <% } %>
+    <% let count=0; %>
+    <% Object.entries(inShopProductsObj).forEach(([type, inShopProducts],index) => { %>
+        <% if (index===0) { %>
+            <h2 class="admin-type-division first-type-admin"><%= type %></h2>
+        <% } else { %>
+            <h2 class="admin-type-division"><%= type %></h2>
+        <% } %>
+        <% inShopProducts.forEach((prod,index) => { %>
+            <% if (index%3==0) { %>
+                <div class="display-admin-products-shop">
+            <% } %>
+                <div class="admin-product">
+                    <img src="<%= prod.imageURL[0] %>" alt="Product Image" class="admin-product-image">
+                    <div class="admin-product-title"><%= prod.title %></div>
+                    <div class="admin-product-controls">
+                        <form action="/admin/remove-from-shop" method="post">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <input type="hidden" value="<%= prod._id %>" name="productId">
+                            <button type="submit" class="remove-shop-btn">Remove from Shop</button>
+                        </form>
+                        <a href="/admin/edit-product/<%= prod._id %>"><button class="product-change-btn edit-btn">Edit Product</button></a>
+                        <form action="/admin/delete-product" method="post">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <input type="hidden" value="<%= prod._id %>"  name="productId">
+                            <button type="submit" class="product-change-btn delete-btn">Delete Product</button>
+                        </form>
+                    </div>
+                </div>
+            <% count+=1; %>
+            <% while (index==inShopProducts.length-1 && count%3!=0) { %>
+                <div class="product"></div>
+                <% count+=1; %>
+            <% } %>
+            <% if (count%3==0) { %>
+                </div>
+            <% } %>
+        <% }) %>
+    <% }) %>
+    <h2 class="add-shop">Add to Shop</h2>
+    <% if (Object.keys(notInShopProductsObj).length===0) { %>
+        <h2 class="empty-admin-page">No products remaining to be added.</h2>
+    <% } %>
+    <% count=0; %>
+    <% Object.entries(notInShopProductsObj).forEach(([type, notInShopProducts],index) => { %>
+        <% if (index===0) { %>
+            <h2 class="admin-type-division first-type-admin"><%= type %></h2>
+        <% } else { %>
+            <h2 class="admin-type-division"><%= type %></h2>
+        <% } %>
+        <% notInShopProducts.forEach((prod,index) => { %>
+            <% if (index%3==0) { %>
+                <div class="display-admin-products-shop">
+            <% } %>
+                <div class="admin-product">
+                    <img src="<%= prod.imageURL[0] %>" alt="Product Image" class="admin-product-image">
+                    <div class="admin-product-title"><%= prod.title %></div>
+                    <div class="admin-product-controls">
+                        <form action="/admin/add-to-shop" method="post">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <input type="hidden" value="<%= prod._id %>" name="productId">
+                            <button type="submit" class="remove-shop-btn">Add to Shop</button>
+                        </form>
+                        <a href="/admin/edit-product/<%= prod._id %>"><button class="product-change-btn edit-btn">Edit Product</button></a>
+                        <form action="/admin/delete-product" method="post">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <input type="hidden" value="<%= prod._id %>"  name="productId">
+                            <button type="submit" class="product-change-btn delete-btn">Delete Product</button>
+                        </form>
+                    </div>
+                </div>
+            <% count+=1; %>
+            <% while (index==notInShopProducts.length-1 && count%3!=0) { %>
+                <div class="product"></div>
+                <% count+=1; %>
+            <% } %>
+            <% if (count%3==0) { %>
+                </div>
+            <% } %>
+        <% }) %>
+    <% }) %>
+</body>

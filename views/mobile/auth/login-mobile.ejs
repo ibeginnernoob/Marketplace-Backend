@@ -1,0 +1,56 @@
+<%- include('../includes/head-mobile.ejs') %>
+</head>
+<body>
+    <%- include('../includes/navbar-mobile.ejs') %>
+    <div class="login-page">
+        <form action="/mobile/login" method="post">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <div class="login-form">
+                <h1 class="login-welcome">Welcome Back!</h1>
+                <h3 class="login-form-info">Please fill the form to sign in to your account.</h3>
+                <hr class="login-form-top-end">
+                <div class="login-email-container">
+                    <input type="text" placeholder="Email" class="login-form-input  login-email-input <% if (emailError) { %>
+                        login-email-input-error
+                    <% } %>" name="email">
+                    <% if (emailError) { %>
+                        <div class="signup-email-error">
+                            <%= emailError.msg %>
+                        </div>
+                    <% } %>
+                </div>
+                <div class="login-password-container">
+                    <input type="password" id="password" placeholder="Password" name="password" class="login-form-input <% if (passwordError) { %>
+                        login-password-input-error
+                    <% } %>">
+                    <span class="login-toggle-password" onclick="togglePassword()">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    </span>
+                    <% if (password) { %>
+                        <div class="signup-password-error">
+                            <%= passwordError.msg %>
+                        </div>
+                    <% } %>
+                </div>
+                <div class="ask-signup">Not a member. <a href="/mobile/signup">Sign Up</a></div>
+                <button class="login-form-btn">Log In</button>
+            </div>
+        </form>
+        <script>
+            function togglePassword() {
+                const passwordInput = document.getElementById("password");
+                const toggleIcon = document.querySelector(".login-toggle-password i");
+                if(passwordInput.type === "password"){
+                    passwordInput.type = "text";
+                    toggleIcon.classList.remove("fa-eye");
+                    toggleIcon.classList.add("fa-eye-slash");
+                } 
+                else{
+                    passwordInput.type = "password";
+                    toggleIcon.classList.remove("fa-eye-slash");
+                    toggleIcon.classList.add("fa-eye");
+                }
+            }
+        </script>
+    </div>
+</body>

@@ -1,0 +1,220 @@
+.product-details-page{
+    margin: 120px 0px 0px 0px;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.images-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 810px;
+}
+.thumbnails{
+    display: flex;
+    flex-direction: column;
+}
+.thumbnail{
+    height: 90px;
+    width: 90px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin: 10px 0px 10px 0px;
+}
+.thumbnail.active {
+    filter: brightness(80%);
+    border: 0.5px solid rgb(50, 50, 50);
+}
+.top-thumbnail{
+    margin: 0px 0px 10px 0px;
+}
+.bottom-thumbnail{
+    margin: 10px 0px 0px 0px;
+}
+.zoomed-image{
+    height: 600px;
+    width: 700px;
+    border: 1px solid rgb(160, 160, 160);
+    border-radius: 5px;
+}
+.product-info-purchase-section{
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+}
+.title-details-page{
+    margin: 0px 25px 0px 25px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 40px;
+}
+.type-details-page{
+    margin: -5px 25px 0px 30px;
+    color: rgb(100, 100, 100);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 400;
+    font-size: 20px;
+}
+.display-price-details-page{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 350px;
+    margin: 15px 25px 0px 25px;
+}
+.price-details-page{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+}
+.cancelled-price-details-page{
+    margin-left: 10px;
+    color: rgb(200, 0, 0);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
+.description-details-page{
+    margin: 20px 25px 0px 25px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 17px;
+}
+.qty-input-div-details-page{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px 0px 0px 25px;
+    color: rgb(80, 80, 80);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+}
+.qty-input-details-page{
+    margin-left: 10px;
+    padding: 4px 0px 4px 5px;
+    width: 32px;
+    border: 1px solid rgb(100, 100, 100);
+    border-radius: 2px;
+    font-size: 12px;
+}
+.qty-input-details-page:focus{
+    outline: none;
+}
+.details-page-btns{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.add-cart-details-page{
+    position: relative;
+    margin: 30px 0px 20px 0px;
+    width: 300px;
+    height: 50px;
+    border: 1px solid rgb(150, 150, 150);
+    border-radius: 40px;
+    background-color: white;
+    color: black;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 15px;
+}
+.add-cart-details-page:hover{
+    background-color: rgb(235, 235, 235);
+    cursor: pointer;
+}
+.add-cart-details-page:active{
+    background-color: rgb(225, 225, 225);
+}
+.add-cart-details-page[disabled]{
+    background-color: rgba(180, 180, 180, 0.5);
+    border: none;
+    cursor: not-allowed;
+}
+.add-cart-details-page[disabled]::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+}
+.add-cart-details-page[disabled]::after {
+    content: attr(data-tooltip1);
+    width: 200px;
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 10px 5px 10px;
+    background-color: #000000;
+    border-radius: 4px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s, bottom 0.2s;
+}
+.add-cart-details-page[disabled]:hover::after {
+    opacity: 0.7;
+    visibility: visible;
+    bottom: 120%;
+}
+.add-wishlist-details-page{
+    position: relative;
+    margin: 0px 0px 20px 0px;
+    width: 300px;
+    height: 50px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 40px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 15px;
+}
+.add-wishlist-details-page:hover{
+    background-color: rgb(40, 40, 40);
+    cursor: pointer;
+}
+.add-wishlist-details-page:active{
+    background-color: rgb(80, 80, 80);
+}
+.add-wishlist-details-page[disabled]{
+    border: none;
+    background-color: rgb(80, 80, 80);
+    cursor: not-allowed;
+}
+.add-wishlist-details-page[disabled]::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+}
+.add-wishlist-details-page[disabled]::after{
+    content: attr(data-tooltip2);
+    width: 200px;
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 10px 5px 10px;
+    background-color: #000000;
+    border-radius: 4px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s, bottom 0.2s;
+}
+.add-wishlist-details-page[disabled]:hover::after{
+    opacity: 0.75;
+    visibility: visible;
+    bottom: 120%;
+}

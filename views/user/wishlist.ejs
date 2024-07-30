@@ -1,0 +1,67 @@
+<!--<input type="hidden" name="_csrf" value="<%= csrfToken %>"> for post requests to be added in future.-->
+<%- include('../includes/head.ejs') %>
+</head>
+<body>
+    <%- include('../includes/navbar.ejs') %>
+    <div class="wishlist-page">
+        <div class="wishlist-heading">
+            <img src="/images/wishlist-heading.png" alt="">
+            My WishList
+        </div>
+        <% if (userWishlist.length===0) { %>
+            <div class="empty-wishlist-heading">
+                Your wishlist is empty.
+            </div>
+        <% } else { %>
+            <div class="wishlist-headers">
+                <div class="first-wishlist-header">
+                    PRODUCT DETAILS
+                </div>
+                <div class="second-wishlist-header">
+                    UNIT PRICE
+                </div>
+                <div class="third-wishlist-header">
+                    STOCK STATUS
+                </div>
+            </div>
+            <% userWishlist.forEach(item => { %>
+                <div class="wishlist-product">
+                    <form action="/remove-from-wishlist" method="post">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <input type="hidden" value="<%= item.product._id %>" name="productId">
+                        <button type="submit"><img src="/images/remove-from-wishlist.png" alt="" class="remove-from-wishlist-image"></button>
+                    </form>
+                    <div class="product-details-wishlist">
+                        <img src="<%= item.product.imageURL[0] %>" alt="" class="product-wishlist-image">
+                        <div>
+                            <%= item.product.title %>
+                        </div>
+                    </div>
+                    <div class="product-price-wishlist">
+                        ₹<%= item.product.price %>
+                    </div>
+                    <% if (item.product.in_shop) { %>
+                        <div class="product-instock-status-wishlist">
+                            In Stock
+                        </div>
+                    <% } else { %>
+                        <div class="product-outstock-status-wishlist">
+                            Unavailable
+                        </div>
+                    <% } %>
+                    <div class="add-to-cart-from-wishlist">
+                        Added on: 12 July 2012
+                        <% if (item.product.in_shop) { %>
+                            <form action="/wishlist/add-to-cart" method="post">
+                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                <input type="hidden" value="<%= item.product._id %>" name="productId">
+                                <button type="submit">Add To Cart</button>
+                            </form>
+                        <% } %>
+                    </div>
+                </div>
+            <% }) %>
+        <% } %>
+    </div>
+    <a href="/" class="shop-link-from-wishlist">&#8592; Continue Shopping</a>
+</body>

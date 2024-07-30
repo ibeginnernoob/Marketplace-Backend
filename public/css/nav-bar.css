@@ -1,0 +1,205 @@
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: white;
+}
+.navbar-elements{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.navbar-logo{
+    height: 60px;
+    margin-left: 40px;
+    cursor: pointer;
+}
+.searchbar{
+    position: relative;
+}
+.searchbar button{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+.search-logo{
+    height: 25px;
+    position: absolute;
+    top: 25%;
+    left: 5%;
+    z-index: 1;
+}
+.navbar-searchbar{
+    width: 600px;
+    height: 50px;
+    border: 1px solid rgb(160, 160, 160);
+    border-radius: 50px;
+    background-color: rgb(250, 250, 250);
+    padding-left: 60px;
+    font-size: 16px;
+}
+.navbar-searchbar:focus{
+    outline: 1px solid black;
+}
+.navbar-user-favourites-btn{
+    height: 40px;
+    position: relative;
+    cursor: pointer;
+}
+.navbar-user-cart-btn{
+    height: 40px;
+    position: relative;
+    cursor: pointer;
+}
+.navbar-user-account-btn{
+    height: 40px;
+    margin-right: 20px;
+    position: relative;
+    cursor: pointer;
+}
+.account-details-hoverbox{
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    top: 65px;
+    right: 25px;
+    width: 110px;
+    z-index: 200;
+    position: absolute;
+    border: 1px solid black;
+    border-bottom: none;
+    background-color: white;
+    transition: 0.2s;
+}
+.account-details-hoverbox button{
+    padding: 5px 0px 5px 0px;
+    width: 110px;
+    background-color: white;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.logout{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+}
+.logout-img{
+    height: 20px;
+    margin-right: 10px;
+}
+.logout:hover{
+    opacity: 0.6;
+}
+.settings{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+}
+.settings-img{
+    height: 20px;
+    margin-right: 10px;
+}
+.settings:hover{
+    opacity: 0.6;
+}
+.navbar-user-account-btn:hover + .account-details-hoverbox,
+.account-details-hoverbox:hover{
+    display: block;
+    opacity: 0.9;
+    visibility: visible;
+    transition-delay: 0.3s;
+}
+.navbar-btns{
+    margin-right: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+}
+.unauth-btns-navbar{
+    width: 200px;
+    margin-right: 100px;
+}
+.navbar-signup-btn{
+    padding: 8px 12px 8px 12px;
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 15px;
+    transition: 0.15s;
+}
+.navbar-signup-btn:hover{
+    background-color: rgb(240, 240, 240);
+    cursor: pointer;
+}
+.navbar-signup-btn:active{
+    background-color: rgb(220, 220, 220);
+}
+.navbar-login-btn{
+    padding: 9px 13px 9px 13px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-size: 15px;
+    transition: 0.15s;
+}
+.navbar-login-btn:hover{
+    background-color: rgb(50, 50, 50);
+    cursor: pointer;
+}
+.navbar-login-btn:active{
+    background-color: rgb(70, 70, 70);
+}
+.navbar-end{
+    margin: 0;
+    height: 1px;
+    background-color: rgb(185, 185, 185);
+    border: none;
+}
+.navbar-btn-hoverbox{
+    position: absolute;
+    bottom: -5px;
+    visibility: hidden;
+    opacity: 0;
+    padding: 2px 5px 2px 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgb(75, 75, 75);
+    color: white;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+    transition: 0.2s;
+}
+.fav-hoverbox{
+    right: 290px;
+}
+.cart-hoverbox{
+    right: 180px;
+}
+.navbar-user-favourites-btn:hover + .navbar-btn-hoverbox,
+.navbar-button-link:hover + .navbar-btn-hoverbox,
+.navbar-user-account-btn:hover + .navbar-btn-hoverbox {
+    visibility: visible;
+    opacity: 0.9;
+}
+

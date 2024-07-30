@@ -1,0 +1,39 @@
+<%- include('../includes/head-mobile.ejs') %>
+</head>
+<!--<input type="hidden" name="_csrf" value="<%= csrfToken %>"> for post requests to be added in future.-->
+<body>
+    <%- include('../includes/navbar-mobile.ejs') %>
+    <div class="display-products-page">
+        <% let count=0; %>
+        <% Object.entries(shop).forEach(([type, products],index) => { %>
+            <% if (index===0) { %>
+                <h2 class="shop-type-division first-type"><%= type %></h2>
+            <% } else { %>
+                <h2 class="shop-type-division"><%= type %></h2>
+            <% } %>
+            <% products.forEach((prod,index) => { %>
+                <% if (index%2==0) { %>
+                    <div class="display-products">
+                <% } %>
+                        <div class="product">
+                            <a href="/mobile/product-details/<%= prod._id %>">
+                                <img src="<%= prod.imageURL[0] %>" alt="Product Image" class="product-image">
+                                <div class="product-title"><%= prod.title %></div>
+                                <div class="display-price">
+                                    <div class="product-price">&#8377;<%= prod.price %></div>   
+                                    <div class="cancelled-product-price"><s>&#8377;<%= prod.cancel_price %></s></div>
+                                </div>
+                            </a>
+                       </div>
+                <% count+=1; %>
+                <% while (index==products.length-1 && count%2!=0) { %>
+                    <div class="product"></div>
+                    <% count+=1; %>
+                <% } %>
+                <% if (count%2==0) { %>
+                    </div>
+                <% } %>
+            <% }) %>
+        <% }) %>
+    </div>
+</body>

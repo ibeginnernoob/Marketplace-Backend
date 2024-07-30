@@ -1,0 +1,21 @@
+.error-500-page{
+    margin: 100px 0px 0px 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: monospace;
+    font-weight: 600;
+    font-size: 20px;
+}
+.error-500-image{
+    height: 200px;
+    width: 300px;
+    margin: 0px 0px 20px 0px;
+}
+.error-message{
+    margin: 20px 0px 0px 0px;
+    font-family: monospace;
+    font-weight: 500;
+    font-size: 12px;
+}

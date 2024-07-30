@@ -1,0 +1,45 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<body>
+    <%- include('../includes/navbar.ejs') %>
+    <div class="edit-product-page">
+        <form enctype="multipart/form-data" action="/admin/edit-product?_csrf=<%= csrfToken %>" method="post">
+            <input type="hidden" value="<%= product._id %>" name="productId">
+            <div class="in-row">
+                <div>
+                    <h3 class="heading">Product Type</h3>
+                    <input type="text"  placeholder="Enter Product Type" class="required-input product-info-input" name="productType" value="<%= product.type %>">
+                </div>
+                <div>
+                    <h3 class="heading">Product Title</h3>
+                    <input type="text" placeholder="Enter Product Title" class="required-input product-info-input" name="productTitle" value="<%= product.title %>">
+                </div>
+            </div>
+            <h3 class="heading">Product Description</h3>
+            <textarea id="" cols="30" rows="10" placeholder="Enter Product Description" class="required-input product-description-input" name="productDescription"><%= product.description %></textarea>
+            <h3 class="heading">Product ImageURL 1 (Main Image)</h3>
+            <input type="file" placeholder="Enter Product ImageURL" class="required-input product-info-input product-imageurl-input" name="productImage1">
+            <h3 class="heading">Product ImageURL 2</h3>
+            <input type="file" placeholder="Enter Product ImageURL" class="required-input product-info-input product-imageurl-input" name="productImage2">
+            <h3 class="heading">Product ImageURL 3</h3>
+            <input type="file" placeholder="Enter Product ImageURL" class="required-input product-info-input product-imageurl-input" name="productImage3">
+            <h3 class="heading">Product ImageURL 4</h3>
+            <input type="file" placeholder="Enter Product ImageURL" class="required-input product-info-input product-imageurl-input" name="productImage4">
+            <h3 class="heading">Product ImageURL 5</h3>
+            <input type="file" placeholder="Enter Product ImageURL" class="required-input product-info-input product-imageurl-input" name="productImage5">
+            <div class="in-row">
+                <div>
+                    <h3 class="heading">Product Price</h3>
+                    <input type="text" placeholder="Enter Product Price" class="required-input product-info-input" name="productPrice" value="<%= product.price %>">
+                </div>
+                <div>
+                    <h3 class="heading">Product Cancelled Price</h3>
+                    <input type="text" placeholder="Enter Cancelled Product Price(Higher that original price)" class="required-input product-info-input" name="cancelledProductPrice" value="<%= product.cancel_price %>"> 
+                </div>  
+            </div>
+            <h3 class="heading">Product Keywords</h3>
+            <textarea id="" cols="30" rows="10" placeholder="Enter Product Keywords(',' seperated)" class="required-input product-keywords-input" name="productKeywords"><%= product.keywords_id.join(',') %></textarea>
+            <button type="submit" id="submitButton" class="add-admin-product-btn">Save changes</button>
+    </div>
+    </form>
+</body>
