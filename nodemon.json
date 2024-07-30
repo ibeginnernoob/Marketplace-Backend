@@ -1,0 +1,9 @@
+{
+    "env":{
+        "NODE_ENV":"development",
+        "MONGO_USER":"adheil",
+        "MONGO_PASSWORD":"Ahana123",
+        "MONGO_DATABASE":"CosyColors",
+        "MONGO_CLUSTER":"Cluster0"
+    }
+}
