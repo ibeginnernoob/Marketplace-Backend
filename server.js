@@ -26,7 +26,7 @@ const authRoutes=require('./routes/auth');
 const userRoutes=require('./routes/user');
 
 //package implementations
-const MONGODB_URI='mongodb+srv://adheil:Ahana123@cluster0.rblysmw.mongodb.net/CosyColors?w=majority&appName=Cluster0';
+const MONGODB_URI=`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.rblysmw.mongodb.net/${process.env.MONGO_DATABASE}?w=majority&appName=${process.env.MONGO_CLUSTER}`;
 
 let mobileUser;
 let desktopUser;
@@ -40,8 +40,17 @@ const store=new MongoDBStore({
     collection:'sessions'
 });
 
+const accessLogControl=fs.createWriteStream(
+    path.join(__dirname,'access.log'),
+    {flags:'a'}
+);
+
 app.set('view engine', 'ejs');
 app.set('views', 'views');
+
+app.use(helmet());
+app.use(compression());
+app.use(morgan('combined',{stream:accessLogControl}));
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -118,6 +127,6 @@ app.use((error,req,res,next)=>{
 
 mongoose.connect(MONGODB_URI)
     .then(result=>{
-        app.listen(3000);
+        app.listen(process.env.PORT || 3000);
     })
     .catch(err=>console.log(err))
