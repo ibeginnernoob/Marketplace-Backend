@@ -38,34 +38,6 @@
                 </form>
             </div>
         </div>
-        <script>
-            const thumbnails = document.querySelectorAll('.thumbnail');
-            const zoomedImage = document.getElementById('zoomed');
-            thumbnails.forEach(thumbnail => {
-                thumbnail.addEventListener('mouseover', () => {
-                    zoomedImage.src = thumbnail.src;
-                    zoomedImage.alt = thumbnail.alt;
-                    thumbnails.forEach(thumb => thumb.classList.remove('active'));
-                    thumbnail.classList.add('active');
-                });
-            });
-            thumbnails[0].classList.add('active');
-    
-            const input = document.getElementById('qty-input');
-            input.addEventListener('focus', function() {
-            this.style.caretColor = 'transparent';
-            });
-            input.addEventListener('keydown', function(e) {
-            if (e.key === 'ArrowUp') {
-                e.preventDefault();
-                this.value = parseInt(this.value) + 1;
-            } else if (e.key === 'ArrowDown') {
-                e.preventDefault();
-                this.value = parseInt(this.value) - 1;
-            } else if (e.key !== 'Tab') {
-                e.preventDefault();
-            }
-            });
-        </script>
+        <script src="/scripts/detailsImageZoom.js"></script>
     </div>
 </body>
